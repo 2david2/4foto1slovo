@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .cell{
+            width: 25px;
+            height: 25px;
+            border: 2px solid black;
+            display: inline-block;
+        }
+     .img{
+         width: 120px;
+         height: 120px;
+     }
+        .letter{
+            border: 2px solid black;
+            height: 30px;
+            width: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<center>
+    <img src="4-fotkipng_1Lvl.png">
+
+</br>
+</br>
+</br>
+    <img class="img" src="4-fotkipng_son.png">
+    <img class="img" src="4-fotkipng_son.2png.jpg">
+    </br>
+    <img class="img" src="4-fotkipng_son3.png">
+    <img class="img" src="4-fotkipng_son.4png.jpg">
+    <div class="word">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+    </div>
+    <div class="first-line">
+        <div class="letter" id="С" onclick="tap(this.id)">С</div>
+        <div class="letter" id="О" onclick="tap(this.id)">О</div>
+        <div class="letter" id="Н" onclick="tap(this.id)">Н</div>
+    </div>
+
+
+
+
+    <script>
+        document.body.style.backgroundColor = "grey"
+        function tap(clicked_id) {
+            cells = document.getElementsByClassName("cell")
+            if (cells[0].innerHTML == ""){
+                cells[0].innerHTML = document.getElementById(clicked_id).innerHTML
+            }
+             if (cells[1].innerHTML == ""){
+                 cells[1].innerHTML = document.getElementById(clicked_id).innerHTML
+            }
+             if (cells[2].innerHTML == ""){
+                 cells[2].innerHTML = document.getElementById(clicked_id).innerHTML
+            }
+        }
+
+
+    </script>
+
+</center>
+</body>
+</html>
