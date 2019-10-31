@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .cell{
+        .button{
+            background:grey;
+            color: black;
+        }
+        .cells{
             width: 25px;
             height: 25px;
             border: 2px solid black;
@@ -15,9 +19,17 @@
          height: 120px;
      }
         .letter{
-            border: 2px solid black;
+            border: 2px solid #000000;
             height: 30px;
             width: 30px;
+            margin: 5px;
+            background: green;
+        }
+        .row{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
         }
     </style>
 </head>
@@ -34,34 +46,64 @@
     </br>
     <img class="img" src="4-fotkipng_son3.png">
     <img class="img" src="4-fotkipng_son.4png.jpg">
-    <div class="word">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-    </div>
-    <div class="first-line">
-        <div class="letter" id="С" onclick="tap(this.id)">С</div>
-        <div class="letter" id="О" onclick="tap(this.id)">О</div>
-        <div class="letter" id="Н" onclick="tap(this.id)">Н</div>
+
+
+    <div class="row">
+        <div class="cells"></div>
+        <div class="cells"></div>
+        <div class="cells"></div>
     </div>
 
+
+    <button class="button">СБРОС</button>
+
+
+    <div class="row">
+        <div class="letter" id="Ф" onclick="tap(this.id)">Ф</div>
+        <div class="letter" id="С" onclick="tap(this.id)">С</div>
+        <div class="letter" id="Л" onclick="tap(this.id)">Л</div>
+        <div class="letter" id="Р" onclick="tap(this.id)">Р</div>
+    </div>
+
+    <div class="row">
+        <div class="letter" id="Н" onclick="tap(this.id)">Н</div>
+        <div class="letter" id="М" onclick="tap(this.id)">М</div>
+        <div class="letter" id="О" onclick="tap(this.id)">О</div>
+        <div class="letter" id="З" onclick="tap(this.id)">З</div>
+    </div>
 
 
 
     <script>
         document.body.style.backgroundColor = "grey"
+        ochered = 1
         function tap(clicked_id) {
-            cells = document.getElementsByClassName("cell")
-            if (cells[0].innerHTML == ""){
+            cells = document.getElementsByClassName("cells")
+
+            if (ochered == 1) {
                 cells[0].innerHTML = document.getElementById(clicked_id).innerHTML
             }
-             if (cells[1].innerHTML == ""){
-                 cells[1].innerHTML = document.getElementById(clicked_id).innerHTML
+            if (ochered == 2) {
+                cells[1].innerHTML = document.getElementById(clicked_id).innerHTML
             }
-             if (cells[2].innerHTML == ""){
-                 cells[2].innerHTML = document.getElementById(clicked_id).innerHTML
+            if (ochered == 3) {
+                cells[2].innerHTML = document.getElementById(clicked_id).innerHTML
+                div = cells[0].innerHTML + cells[1].innerHTML + cells[2].innerHTML
+
+                if (div != "СОН") {
+                    cells[0].innerHTML = ""
+                    cells[1].innerHTML = ""
+                    cells[2].innerHTML = ""
+                    ochered = 0
+                }
+                else {
+                    alert("you win!!!")
+
+                }
             }
+                ochered++
         }
+
 
 
     </script>
